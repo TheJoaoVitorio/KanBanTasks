@@ -72,8 +72,8 @@ uses
 
 {$R *.fmx}
 
-// Simple Functions
 
+// Simple Functions
 
 procedure THome.AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String);
 var
@@ -205,9 +205,7 @@ var
   TotalItemsHeight: Single;
 begin
     ItemHeight := 60;
-
     TotalItemsHeight := lboxCategories.Items.Count * ItemHeight;
-
     lboxCategories.Height := TotalItemsHeight;
 end;
 
