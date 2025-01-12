@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2025/01/11 21:26:49.104,=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/01/11 21:28:03.325,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\forms\FHome.fmx=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.fmx</Transaction>
+    <Transaction>2025/01/11 21:28:03.325,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\forms\FHome.pas=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/01/11 21:28:30.988,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\KanBanTasks.dproj=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

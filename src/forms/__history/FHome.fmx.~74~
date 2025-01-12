@@ -1,0 +1,374 @@
+object Home: THome
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 720
+  ClientWidth = 1368
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnResize = FormResize
+  DesignerMasterStyle = 0
+  object rtContainerMaster: TRectangle
+    Align = Client
+    Fill.Color = xFF191B1F
+    Size.Width = 1368.000000000000000000
+    Size.Height = 720.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object rtNavLeftContainer: TRectangle
+      Align = MostLeft
+      Fill.Color = xFF191B1F
+      Size.Width = 100.000000000000000000
+      Size.Height = 720.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      Stroke.Dash = Dash
+      object rtNavLeftContent: TRectangle
+        Align = Client
+        Fill.Color = claNull
+        Margins.Left = 16.000000000000000000
+        Margins.Top = 16.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Size.Width = 79.000000000000000000
+        Size.Height = 688.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        Stroke.Dash = Dash
+        object crNavMenu: TCircle
+          Align = MostTop
+          Fill.Color = xFF2A2D32
+          Size.Width = 79.000000000000000000
+          Size.Height = 45.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object imgNavMenu: TImage
+            MultiResBitmap = <
+              item
+                Width = 16
+                Height = 16
+                PNG = {
+                  89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+                  610000000473424954080808087C0864880000003549444154388D63601868C0
+                  F8FFFFFF59941AF09F5AAE19A280F1FFFFFF67293180895A2E19C280E284C4C2
+                  C0C0309B4A8E1920000003DE0FFF7963474A0000000049454E44AE426082}
+              end>
+            Align = Client
+            HitTest = False
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 59.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            WrapMode = Center
+          end
+        end
+        object imgChangeTheme: TImage
+          MultiResBitmap = <
+            item
+              Width = 32
+              Height = 32
+              PNG = {
+                89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+                F40000000473424954080808087C08648800000181494441545885ED97C14A42
+                411885CF58BE4A040562B6A8A7104471AB19D9A6D6853D40AFD04208DD859B9E
+                24DA5A3D43D02ECABE168E30D9F57A9D19B9101D18B87766FE730ECCCC3FFF48
+                FF080050024A791A180083108ECD400F26305E855082B51900DA402B54006801
+                ED950D48DA90D4074E52E6DCDBB648BC2BA92FDFA5023AC02770E6117B6E638F
+                BCC41DA2534B5476FA0AC021D0B0ED0030CEF89E8DE906893B8415A068BF6BC0
+                33BFF10454ED9C225089223E67E42A41D8C51770195DD88AD79688BB26AAB1C5
+                0DF092D100C018674FC430B0BF82F80CE5E5CC4E2A667AA95C687AFE67B833C6
+                8C246D79F8DE96F4003424359CFE89A46B63CCE30F039A268B370FA12C789DFB
+                5F6D79D6B904590DE4BB09AD89FC8EA163229F4444B6543C661DA99884CBC8F6
+                EF0255DB76E6C6E25C46400FF8009A1EB14D1BDBF3153F0626A41424401DA8A7
+                8C772DC7C29A20AD289D48EA18636E53E6CC76FB2869D0187303BC2B42F19A08
+                60080C433872AF8A43DF054471E1AD9EF7D3EC4FE01B7007B14EFA23F0C60000
+                000049454E44AE426082}
+            end>
+          Align = MostBottom
+          Position.Y = 638.000000000000000000
+          Size.Width = 79.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Center
+        end
+      end
+    end
+    object rtMainContainer: TRectangle
+      Align = Client
+      Fill.Color = xFF2A2D32
+      Margins.Left = 16.000000000000000000
+      Margins.Top = 16.000000000000000000
+      Margins.Right = 16.000000000000000000
+      Margins.Bottom = 16.000000000000000000
+      Size.Width = 1236.000000000000000000
+      Size.Height = 688.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+      object rtBacklogContainer: TRectangle
+        Align = MostLeft
+        Fill.Color = xFF2A2D32
+        Size.Width = 309.000000000000000000
+        Size.Height = 688.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        Stroke.Dash = DashDot
+        XRadius = 16.000000000000000000
+        YRadius = 16.000000000000000000
+        object rtBacklogHeader: TRectangle
+          Align = MostTop
+          Fill.Kind = None
+          Margins.Left = 15.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Margins.Right = 15.000000000000000000
+          Margins.Bottom = 15.000000000000000000
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 279.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object Circle1: TCircle
+            Align = MostLeft
+            Fill.Color = xFF70A3F3
+            Size.Width = 14.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+          end
+          object lblBacklogTitle: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Margins.Left = 5.000000000000000000
+            Position.X = 19.000000000000000000
+            Size.Width = 62.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = 'Backlog'
+            TabOrder = 2
+          end
+          object lblBacklogValue: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Position.X = 81.000000000000000000
+            Size.Width = 35.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = '(0)'
+            TabOrder = 1
+          end
+        end
+      end
+      object rtInProgressContainer: TRectangle
+        Align = MostLeft
+        Fill.Color = xFF2A2D32
+        Position.X = 309.000000000000000000
+        Size.Width = 309.000000000000000000
+        Size.Height = 688.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        Stroke.Dash = DashDot
+        object rtInProgressHeader: TRectangle
+          Align = MostTop
+          Fill.Kind = None
+          Margins.Left = 15.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Margins.Right = 15.000000000000000000
+          Margins.Bottom = 15.000000000000000000
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 279.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object Circle2: TCircle
+            Align = MostLeft
+            Fill.Color = xFFF3CE49
+            Size.Width = 14.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+          end
+          object lblProgressTitle: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Margins.Left = 5.000000000000000000
+            Position.X = 19.000000000000000000
+            Size.Width = 86.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = 'In Progress'
+            TabOrder = 2
+          end
+          object lblProgressValue: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Position.X = 105.000000000000000000
+            Size.Width = 35.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = '(0)'
+            TabOrder = 1
+          end
+        end
+      end
+      object rtCompletedContainer: TRectangle
+        Align = MostRight
+        Fill.Color = xFF2A2D32
+        Position.X = 927.000000000000000000
+        Size.Width = 309.000000000000000000
+        Size.Height = 688.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        Stroke.Dash = DashDot
+        XRadius = 16.000000000000000000
+        YRadius = 16.000000000000000000
+        object rtCompletedHeader: TRectangle
+          Align = MostTop
+          Fill.Kind = None
+          Margins.Left = 15.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Margins.Right = 15.000000000000000000
+          Margins.Bottom = 15.000000000000000000
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 279.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object Circle3: TCircle
+            Align = MostLeft
+            Fill.Color = xFF77DB89
+            Size.Width = 14.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+          end
+          object lblCompletedTitle: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Margins.Left = 5.000000000000000000
+            Position.X = 19.000000000000000000
+            Size.Width = 86.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = 'Completed'
+            TabOrder = 2
+          end
+          object lblCompletedValue: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Position.X = 105.000000000000000000
+            Size.Width = 35.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = '(0)'
+            TabOrder = 1
+          end
+        end
+      end
+      object rtInReviewContainer: TRectangle
+        Align = MostLeft
+        Fill.Color = xFF2A2D32
+        Position.X = 618.000000000000000000
+        Size.Width = 309.000000000000000000
+        Size.Height = 688.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        Stroke.Dash = DashDot
+        XRadius = 16.000000000000000000
+        YRadius = 16.000000000000000000
+        object rtInReviewHeader: TRectangle
+          Align = MostTop
+          Fill.Kind = None
+          Margins.Left = 15.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Margins.Right = 15.000000000000000000
+          Margins.Bottom = 15.000000000000000000
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 279.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object Circle4: TCircle
+            Align = MostLeft
+            Fill.Color = xFFB787F5
+            Size.Width = 14.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+          end
+          object lblReviewTitle: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Margins.Left = 5.000000000000000000
+            Position.X = 19.000000000000000000
+            Size.Width = 74.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = 'In Review'
+            TabOrder = 2
+          end
+          object lblReviewValue: TLabel
+            Align = MostLeft
+            StyledSettings = []
+            Position.X = 93.000000000000000000
+            Size.Width = 35.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFFFBFBFB
+            Text = '(0)'
+            TabOrder = 1
+          end
+        end
+      end
+      object Rectangle1: TRectangle
+        Fill.Color = xFFFEFEFE
+        Position.X = 414.000000000000000000
+        Position.Y = 264.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+end
