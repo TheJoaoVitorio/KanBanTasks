@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2025/01/11 21:26:49.104,=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2025/01/11 21:28:03.325,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\forms\FHome.fmx=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.fmx</Transaction>
-    <Transaction>2025/01/11 21:28:03.325,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\forms\FHome.pas=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2025/01/11 21:28:30.988,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\KanBanTasks.dproj=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+	<Transactions>
+    <Transaction>2025/01/11 21:26:49.000.104,=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/01/11 21:28:03.000.325,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\forms\FHome.fmx=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.fmx</Transaction>
+    <Transaction>2025/01/11 21:28:03.000.325,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\forms\FHome.pas=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/01/11 21:28:30.000.988,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\KanBanTasks.dproj=C:\Users\joaov\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2025/01/12 11:09:15.627,=C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\Unit1.pas</Transaction>
+    <Transaction>2025/01/12 11:20:05.374,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\frames\frItemCategory.pas=C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\Unit1.pas</Transaction>
+    <Transaction>2025/01/12 11:20:05.374,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\frames\frItemCategory.fmx=C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\Unit1.fmx</Transaction>
+    <Transaction>2025/01/12 11:54:02.585,=C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\Unit1.pas</Transaction>
+    <Transaction>2025/01/12 11:56:22.427,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\commons\uFunctions.pas=C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\Unit1.pas</Transaction>
+    <Transaction>2025/01/12 11:56:34.998,C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\commons\uFuntions.pas=C:\Users\joaov\OneDrive\Desktop\KanBanTasks\src\commons\uFunctions.pas</Transaction>
   </Transactions>
 </BorlandProject>
