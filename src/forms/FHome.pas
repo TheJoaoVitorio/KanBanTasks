@@ -41,9 +41,34 @@ type
     crAddCategory: TCircle;
     imgAddCategory: TImage;
     StyleBook1: TStyleBook;
+    lyMenuSplitter: TLayout;
+    rtMenuSplitterContainer: TRectangle;
+    rtMenuSplitterContent: TRectangle;
+    Rectangle3: TRectangle;
+    crCloseSplitter: TCircle;
+    imgCloseSplitter: TImage;
+    ListBox1: TListBox;
+    crAddCategorieSplitter: TCircle;
+    imgAddCategorieSplitter: TImage;
+    rtMenuSplitterHeaderClose: TRectangle;
+    rtButtonAddNewCategorieSplitter: TRectangle;
+    lblAddNewCategorieSplitter: TLabel;
+    rtButtonsThemes: TRectangle;
+    rtButtonDarkTheme: TRectangle;
+    rtButtonLightTheme: TRectangle;
+    imgButtonDarkTheme: TImage;
+    lblButtonDarkTheme: TLabel;
+    imgButtonLightTheme: TImage;
+    lblButtonLightTheme: TLabel;
     procedure FormResize(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure imgChangeThemeClick(Sender: TObject);
+    procedure crNavMenuClick(Sender: TObject);
+    procedure crCloseSplitterClick(Sender: TObject);
+    procedure rtButtonAddNewCategorieSplitterMouseEnter(Sender: TObject);
+    procedure rtButtonAddNewCategorieSplitterMouseLeave(Sender: TObject);
+    procedure rtButtonLightThemeClick(Sender: TObject);
+    procedure rtButtonDarkThemeClick(Sender: TObject);
 
   private
     procedure DefineTemaSistema(ATheme : String);
@@ -54,6 +79,10 @@ type
     procedure AnimateColorChange(Target: TFmxObject; FromColor, ToColor: TAlphaColor);
     procedure AjustaListBoxCategorias;
     procedure AjustaContainerAplicacao;
+    procedure AnimateLayout(ALayout: TLayout; Show: Boolean);
+    procedure AnimationFinish(Sender: TObject);
+    procedure DefineThemeLightMenuSplitter;
+    procedure DefineThemeDarkMenuSplitter;
 
   public
     procedure AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String);
@@ -157,6 +186,45 @@ begin
 end;
 
 
+procedure THome.DefineThemeDarkMenuSplitter;
+const
+    ColorPrimaryDark: TAlphaColor = $FF191B1F;
+    ColorSecondaryDark: TAlphaColor = $FF2A2D32;
+    ColorNavMenu: TAlphaColor = $FF2A2D32;
+    ColorGray : TAlphaColor = $FF353535;
+begin
+    AnimateColorChange(rtMenuSplitterContainer, rtMenuSplitterContainer.Fill.Color, ColorPrimaryDark);
+    rtMenuSplitterContainer.Stroke.Color := ColorGray;
+    rtMenuSplitterContainer.Stroke.Thickness := 1;
+    ;
+    AnimateColorChange(crCloseSplitter, crCloseSplitter.Fill.Color, ColorNavMenu);
+    crCloseSplitter.Stroke.Kind := TBrushKind.Solid;
+    crCloseSplitter.Stroke.Color := ColorGray;
+    crCloseSplitter.Stroke.Thickness := 0.3;
+
+    AnimateColorChange(rtMenuSplitterContent, rtMenuSplitterContent.Fill.Color, ColorPrimaryDark);
+    AnimateColorChange(rtButtonsThemes, rtButtonsThemes.Fill.Color, ColorPrimaryDark);
+    rtButtonsThemes.Stroke.Color := ColorGray;
+    rtButtonsThemes.Stroke.Thickness := 0.3;
+
+    AnimateColorChange(rtButtonDarkTheme, rtButtonDarkTheme.Fill.Color, ColorPrimaryDark);
+    rtButtonDarkTheme.Stroke.Kind  := TBrushKind.Solid;
+    rtButtonDarkTheme.Stroke.Color := ColorGray;
+    rtButtonDarkTheme.Stroke.Thickness := 0.3;
+    AnimateColorChange(rtButtonLightTheme, rtButtonLightTheme.Fill.Color, ColorPrimaryDark);
+    rtButtonLightTheme.Stroke.Kind := TBrushKind.None;
+
+    imgAddCategorieSplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Plus_MathWhite_16.png '));
+    imgCloseSplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\closeGreen_32.png' ));
+    imgButtonDarkTheme.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_MoonGreen_Star.ico' ) );
+    imgButtonLightTheme.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_SunGreen.ico' ) );
+
+    lblAddNewCategorieSplitter.FontColor := TAlphaColors.White;
+    lblButtonDarkTheme.FontColor         := TAlphaColors.White;
+    lblButtonLightTheme.FontColor        := TAlphaColors.White;
+end;
+
+
 procedure THome.TemaDark;
 const
     ColorPrimaryDark: TAlphaColor = $FF191B1F;
@@ -171,6 +239,7 @@ begin
     AnimateColorChange(rtInProgressContainer, rtInProgressContainer.Fill.Color, ColorSecondaryDark);
     AnimateColorChange(rtInReviewContainer, rtInReviewContainer.Fill.Color, ColorSecondaryDark);
     AnimateColorChange(rtCompletedContainer, rtCompletedContainer.Fill.Color, ColorSecondaryDark);
+    DefineThemeDarkMenuSplitter;
     DefineCoresTextosDark;
     imgNavMenu.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Menu_16.png'));
     imgAddCategory.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Plus_MathBlack_16.png'));
@@ -192,10 +261,50 @@ begin
     AnimateColorChange(rtInProgressContainer, rtInProgressContainer.Fill.Color, ColorSecondaryLight);
     AnimateColorChange(rtInReviewContainer, rtInReviewContainer.Fill.Color, ColorSecondaryLight);
     AnimateColorChange(rtCompletedContainer, rtCompletedContainer.Fill.Color, ColorSecondaryLight);
+    DefineThemeLightMenuSplitter;
     DefineCoresTextosLight;
     imgNavMenu.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_MenuGreen_16.png'));
     imgAddCategory.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Plus_MathWhite_16.png'));
     imgChangeTheme.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_MoonGreen_Star.ico'));
+end;
+
+
+procedure THome.DefineThemeLightMenuSplitter;
+const
+    ColorPrimaryLight: TAlphaColor = $FFEFFEFA;
+    ColorSecondaryLight: TAlphaColor = $FFFEFEFE;
+    ColorNavMenuLight: TAlphaColor = $FFE2FEF7;
+    ColorGreen : TAlphaColor = $FF00FF7F;
+begin
+    AnimateColorChange(rtMenuSplitterContainer, rtMenuSplitterContainer.Fill.Color, ColorPrimaryLight);
+    rtMenuSplitterContainer.Stroke.Color := ColorGreen;
+    rtMenuSplitterContainer.Stroke.Thickness := 0.2
+    ;
+    AnimateColorChange(crCloseSplitter, crCloseSplitter.Fill.Color, ColorNavMenuLight);
+    crCloseSplitter.Stroke.Kind := TBrushKind.Solid;
+    crCloseSplitter.Stroke.Color := ColorGreen;
+    crCloseSplitter.Stroke.Thickness := 0.3;
+
+    AnimateColorChange(rtMenuSplitterContent, rtMenuSplitterContent.Fill.Color, ColorPrimaryLight);
+    AnimateColorChange(rtButtonsThemes, rtButtonsThemes.Fill.Color, ColorPrimaryLight);
+    rtButtonsThemes.Stroke.Color := ColorGreen;
+    rtButtonsThemes.Stroke.Thickness := 0.3;
+
+    AnimateColorChange(rtButtonDarkTheme, rtButtonDarkTheme.Fill.Color, ColorPrimaryLight);
+    rtButtonDarkTheme.Stroke.Kind := TBrushKind.None;
+    AnimateColorChange(rtButtonLightTheme, rtButtonLightTheme.Fill.Color, ColorPrimaryLight);
+    rtButtonLightTheme.Stroke.Kind := TBrushKind.Solid;
+    rtButtonLightTheme.Stroke.Color := ColorGreen;
+    rtButtonLightTheme.Stroke.Thickness := 0.3;
+
+    imgAddCategorieSplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Plus_MathWhite_16.png '));
+    imgCloseSplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\closeGreen_32.png' ));
+    imgButtonDarkTheme.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_MoonGreen_Star.ico' ) );
+    imgButtonLightTheme.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_SunGreen.ico' ) );
+
+    lblAddNewCategorieSplitter.FontColor := ColorGreen;
+    lblButtonDarkTheme.FontColor         := ColorGreen;
+    lblButtonLightTheme.FontColor        := ColorGreen;
 end;
 
 
@@ -258,6 +367,18 @@ begin
 end;
 
 
+procedure THome.crCloseSplitterClick(Sender: TObject);
+begin
+    //lyMenuSplitter.Visible := False;
+    AnimateLayout(lyMenuSplitter, False);
+end;
+
+procedure THome.crNavMenuClick(Sender: TObject);
+begin
+    AnimateLayout(lyMenuSplitter, True);
+end;
+
+
 procedure THome.imgChangeThemeClick(Sender: TObject);
 begin
     if Theme = 'Dark' then
@@ -274,5 +395,80 @@ begin
 
 end;
 
+
+procedure THome.AnimationFinish(Sender: TObject);
+var
+  Animation: TFloatAnimation;
+begin
+  Animation := Sender as TFloatAnimation; // Obtém a animação que disparou o evento
+  if Assigned(Animation.Parent) and (Animation.StopValue = 0) then
+    (Animation.Parent as TControl).Visible := False; // Oculta o controle
+
+  Animation.DisposeOf; // Libera a animação
+end;
+
+
+procedure THome.AnimateLayout(ALayout: TLayout; Show: Boolean);
+var
+  Animation: TFloatAnimation;
+begin
+
+  Animation := TFloatAnimation.Create(ALayout);
+  Animation.Parent := ALayout;
+  Animation.PropertyName := 'Opacity';
+  Animation.Duration := 0.1; // Duração em segundos
+
+  if Show then
+  begin
+    Animation.StartValue := 0; // Começa invisível
+    Animation.StopValue := 1;  // Termina visível
+    ALayout.Opacity := 0;      // Define a opacidade inicial
+    ALayout.Visible := True;   // Torna visível antes de animar
+  end
+  else
+  begin
+    Animation.StartValue := 1; // Começa visível
+    Animation.StopValue := 0;  // Termina invisível
+  end;
+
+  Animation.OnFinish := AnimationFinish;
+
+
+  Animation.Start;
+end;
+
+
+procedure THome.rtButtonAddNewCategorieSplitterMouseEnter(Sender: TObject);
+var
+  ColorGreen : TAlphaColor;
+begin
+    ColorGreen := TFuntions.HexToAlphaColor('#FF00FF7F');
+    lblAddNewCategorieSplitter.FontColor := ColorGreen ;
+end;
+
+
+procedure THome.rtButtonAddNewCategorieSplitterMouseLeave(Sender: TObject);
+var
+  ColorGreen : TAlphaColor;
+begin
+    ColorGreen := TFuntions.HexToAlphaColor('#FF00FF7F');
+    if Theme = 'Dark' then
+      lblAddNewCategorieSplitter.FontColor := TAlphaColors.White
+    else if Theme = 'Light' then
+      lblAddNewCategorieSplitter.FontColor := ColorGreen;
+
+end;
+
+procedure THome.rtButtonDarkThemeClick(Sender: TObject);
+begin
+    DefineTemaSistema('Dark');
+    Theme := 'Dark';
+end;
+
+procedure THome.rtButtonLightThemeClick(Sender: TObject);
+begin
+    DefineTemaSistema('Light');
+    Theme := 'Light';
+end;
 
 end.

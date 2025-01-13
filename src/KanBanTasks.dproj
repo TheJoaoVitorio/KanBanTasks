@@ -197,6 +197,8 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="commons\uFuntions.pas"/>
+        <DCCReference Include="connection\uInstanceController.pas"/>
+        <DCCReference Include="connection\uConnection.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
