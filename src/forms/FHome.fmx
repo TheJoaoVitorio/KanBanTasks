@@ -6,6 +6,7 @@ object Home: THome
   ClientWidth = 1368
   Position = ScreenCenter
   StyleBook = StyleBook1
+  WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]

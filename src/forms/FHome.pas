@@ -206,14 +206,12 @@ begin
     AnimateColorChange(rtButtonsThemes, rtButtonsThemes.Fill.Color, ColorPrimaryDark);
     rtButtonsThemes.Stroke.Color := ColorGray;
     rtButtonsThemes.Stroke.Thickness := 0.3;
-
     AnimateColorChange(rtButtonDarkTheme, rtButtonDarkTheme.Fill.Color, ColorPrimaryDark);
     rtButtonDarkTheme.Stroke.Kind  := TBrushKind.Solid;
     rtButtonDarkTheme.Stroke.Color := ColorGray;
     rtButtonDarkTheme.Stroke.Thickness := 0.3;
     AnimateColorChange(rtButtonLightTheme, rtButtonLightTheme.Fill.Color, ColorPrimaryDark);
     rtButtonLightTheme.Stroke.Kind := TBrushKind.None;
-
     imgAddCategorieSplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Plus_MathWhite_16.png '));
     imgCloseSplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\closeGreen_32.png' ));
     imgButtonDarkTheme.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_MoonGreen_Star.ico' ) );
@@ -289,7 +287,6 @@ begin
     AnimateColorChange(rtButtonsThemes, rtButtonsThemes.Fill.Color, ColorPrimaryLight);
     rtButtonsThemes.Stroke.Color := ColorGreen;
     rtButtonsThemes.Stroke.Thickness := 0.3;
-
     AnimateColorChange(rtButtonDarkTheme, rtButtonDarkTheme.Fill.Color, ColorPrimaryLight);
     rtButtonDarkTheme.Stroke.Kind := TBrushKind.None;
     AnimateColorChange(rtButtonLightTheme, rtButtonLightTheme.Fill.Color, ColorPrimaryLight);
