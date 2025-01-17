@@ -11,7 +11,7 @@ type
   TFramItemCategorySplitter = class(TFrame)
     crItemCategorySplitter: TCircle;
     imgItemCategorySplitter: TImage;
-    Z: TLabel;
+    lblItemCategorySplitter: TLabel;
     imgEditCategorySplitter: TImage;
   private
     { Private declarations }

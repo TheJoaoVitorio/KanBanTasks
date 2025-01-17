@@ -262,6 +262,9 @@ begin
     lblAddNewCategorieSplitter.FontColor := TAlphaColors.White;
     lblButtonDarkTheme.FontColor         := TAlphaColors.White;
     lblButtonLightTheme.FontColor        := TAlphaColors.White;
+
+    TFuntions.AlterarCorLabelDoFrameNoListBox(lboxCategorySplitter,TAlphaColors.White);
+    TFuntions.AlterarCorDoIconDoFrameNoListBox(lboxCategorySplitter, 'Dark');
 end;
 
 
@@ -315,6 +318,8 @@ const
     ColorSecondaryLight: TAlphaColor = $FFFEFEFE;
     ColorNavMenuLight: TAlphaColor = $FFE2FEF7;
     ColorGreen : TAlphaColor = $FF00FF7F;
+var
+  AFrame   : TFramItemCategorySplitter;
 begin
     AnimateColorChange(rtMenuSplitterContainer, rtMenuSplitterContainer.Fill.Color, ColorPrimaryLight);
     rtMenuSplitterContainer.Stroke.Color := ColorGreen;
@@ -344,6 +349,9 @@ begin
     lblAddNewCategorieSplitter.FontColor := ColorGreen;
     lblButtonDarkTheme.FontColor         := ColorGreen;
     lblButtonLightTheme.FontColor        := ColorGreen;
+
+    TFuntions.AlterarCorLabelDoFrameNoListBox(lboxCategorySplitter,TAlphaColors.Black);
+    TFuntions.AlterarCorDoIconDoFrameNoListBox(lboxCategorySplitter, 'Light');
 end;
 
 
@@ -394,9 +402,6 @@ begin
     AddItemCategorias( 2 , 'FFF7D7AF', 'booksCategory.ico');
     AddItemCategorias( 3 , 'FFFCF097', 'toolsCategory.ico');
 
-    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
-    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
-    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
     AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
 end;
 

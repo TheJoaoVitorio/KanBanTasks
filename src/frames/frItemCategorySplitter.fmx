@@ -44,7 +44,7 @@ object FramItemCategorySplitter: TFramItemCategorySplitter
       WrapMode = Center
     end
   end
-  object Z: TLabel
+  object lblItemCategorySplitter: TLabel
     StyledSettings = []
     Position.X = 54.000000000000000000
     Size.Width = 115.000000000000000000
