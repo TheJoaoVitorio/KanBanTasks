@@ -199,6 +199,11 @@
         <DCCReference Include="commons\uFuntions.pas"/>
         <DCCReference Include="connection\uInstanceController.pas"/>
         <DCCReference Include="connection\uConnection.pas"/>
+        <DCCReference Include="frames\frItemCategorySplitter.pas">
+            <Form>FramItemCategorySplitter</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

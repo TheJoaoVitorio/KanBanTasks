@@ -47,7 +47,7 @@ type
     Rectangle3: TRectangle;
     crCloseSplitter: TCircle;
     imgCloseSplitter: TImage;
-    ListBox1: TListBox;
+    lboxCategorySplitter: TListBox;
     crAddCategorieSplitter: TCircle;
     imgAddCategorieSplitter: TImage;
     rtMenuSplitterHeaderClose: TRectangle;
@@ -84,7 +84,9 @@ type
     procedure DefineThemeLightMenuSplitter;
     procedure DefineThemeDarkMenuSplitter;
 
+
   public
+    procedure AddItemCategoriasSplitter(AIdItem: Integer; ANomeItem, AColorItem,APathImage: String);
     procedure AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String);
 
   end;
@@ -97,7 +99,9 @@ var
 implementation
 
 uses
-  frItemCategory , uFuntions;
+  frItemCategory,
+  frItemCategorySplitter,
+  uFuntions;
 
 {$R *.fmx}
 
@@ -141,6 +145,44 @@ begin
     AItemLbx.AddObject(AFrame);
 
     lboxCategories.AddObject(AItemLbx);
+end;
+
+
+procedure THome.AddItemCategoriasSplitter(AIdItem : Integer; ANomeItem : String; AColorItem : String; APathImage : String);
+var
+  AItemLbx : TListBoxItem;
+  AFrame   : TFramItemCategorySplitter;
+  AColor   : TAlphaColor;
+begin
+    AColor := TFuntions.HexToAlphaColor(AColorItem);
+
+    with AItemLbx do begin
+      AItemLbx := TListBoxItem.Create(nil);
+
+      Cursor     := crHandPoint;
+      Tag        := AIdItem;
+      Selectable := True;
+      Parent     := lboxCategorySplitter;
+      Height     := 48;
+      Margins.Bottom := 10;
+    end;
+
+    with AFrame do begin
+      AFrame := TFramItemCategorySplitter.Create(nil);
+
+      imgItemCategorySplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\'+ APathImage) );
+      crItemCategorySplitter.Fill.Color := AColor;
+
+      Align   := TAlignLayout.Top;
+      Parent  := AItemLbx;
+      HitTest := True;
+      crItemCategorySplitter.Margins.Bottom := 16;
+    end;
+
+    AItemLbx.Parent := lboxCategorySplitter;
+    AItemLbx.AddObject(AFrame);
+
+    lboxCategorySplitter.AddObject(AItemLbx);
 end;
 
 
@@ -313,6 +355,9 @@ begin
     ItemHeight := 60;
     TotalItemsHeight := lboxCategories.Items.Count * ItemHeight;
     lboxCategories.Height := TotalItemsHeight;
+
+    TotalItemsHeight := lboxCategorySplitter.Items.Count * ItemHeight;
+    lboxCategorySplitter.Height := TotalItemsHeight;
 end;
 
 
@@ -348,6 +393,11 @@ begin
     AddItemCategorias( 1 , 'FFC4DAFB', 'coderCategory.ico');
     AddItemCategorias( 2 , 'FFF7D7AF', 'booksCategory.ico');
     AddItemCategorias( 3 , 'FFFCF097', 'toolsCategory.ico');
+
+    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
+    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
+    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
+    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
 end;
 
 procedure THome.FormResize(Sender: TObject);

@@ -1,7 +1,7 @@
 object Home: THome
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = 'KanBanTasks'
   ClientHeight = 720
   ClientWidth = 1368
   Position = ScreenCenter
@@ -1515,7 +1515,6 @@ object Home: THome
     Size.Width = 248.000000000000000000
     Size.Height = 697.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     TabOrder = 2
     object rtMenuSplitterContainer: TRectangle
       Align = Client
@@ -1548,7 +1547,7 @@ object Home: THome
           Size.PlatformDefault = False
           Stroke.Kind = None
           Stroke.Dash = Dash
-          object ListBox1: TListBox
+          object lboxCategorySplitter: TListBox
             Align = MostTop
             Margins.Top = 16.000000000000000000
             Position.Y = 16.000000000000000000
