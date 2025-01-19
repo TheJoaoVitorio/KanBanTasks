@@ -6,7 +6,9 @@ uses
   FMX.Ani,
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit;
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit,
+  FireDAC.UI.Intf, FireDAC.FMXUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI,
+  FireDAC.ConsoleUI.Wait;
 
 type
   THome = class(TForm)
@@ -119,7 +121,7 @@ type
 
 
 var
-  Theme: String = 'Dark';
+  Theme: String;
   Home: THome;
 
 implementation
@@ -127,6 +129,7 @@ implementation
 uses
   frItemCategory,
   frItemCategorySplitter,
+  uApplicationController,
   uFuntions;
 
 {$R *.fmx}
@@ -223,21 +226,6 @@ begin
 end;
 
 
-procedure THome.DefineCoresTextosLight;
-begin
-    lblBacklogTitle.FontColor := TAlphaColors.Black;
-    lblBacklogValue.FontColor := TAlphaColors.Black;
-
-    lblProgressTitle.FontColor := TAlphaColors.Black;
-    lblProgressValue.FontColor := TAlphaColors.Black;
-
-    lblCompletedTitle.FontColor := TAlphaColors.Black;
-    lblCompletedValue.FontColor := TAlphaColors.Black;
-
-    lblReviewTitle.FontColor := TAlphaColors.Black;
-    lblReviewValue.FontColor := TAlphaColors.Black;
-end;
-
 
 procedure THome.DefineCoresTextosDark;
 const
@@ -320,6 +308,28 @@ begin
 end;
 
 
+procedure THome.DefineThemeDarkPopUpEdit;
+const
+    ColorPrimaryDark: TAlphaColor = $FF191B1F;
+    ColorSecondaryDark: TAlphaColor = $FF2A2D32;
+    ColorNavMenu: TAlphaColor = $FF2A2D32;
+begin
+    AnimateColorChange(rtPopUpEditCategories, rtPopUpEditCategories.Fill.Color, ColorPrimaryDark);
+    AnimateColorChange(crClosePopUpEditCategories, crClosePopUpEditCategories.Fill.Color, ColorNavMenu);
+    crClosePopUpEditCategories.Stroke.Color := ColorPrimaryDark;
+    crClosePopUpEditCategories.Stroke.Kind := TBrushKind.Solid;
+    crClosePopUpEditCategories.Stroke.Thickness := 0.5;
+    rtPopUpEditCategories.Stroke.Color := ColorSecondaryDark;
+    rtEditBoardName.Stroke.Thickness := 0.5;
+    rtEditBoardName.Stroke.Color := ColorSecondaryDark;
+    rtPopUpEditCategories.Stroke.Thickness := 0.3;
+    lblHeaderEditCategories.FontColor  := TAlphaColors.White;
+
+    imgClosePopUpEditCategories.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\closeGreen_16.png'));
+end;
+
+
+
 procedure THome.TemaLight;
 const
     ColorPrimaryLight: TAlphaColor = $FFEFFEFA;
@@ -343,24 +353,19 @@ begin
 end;
 
 
-procedure THome.DefineThemeDarkPopUpEdit;
-const
-    ColorPrimaryDark: TAlphaColor = $FF191B1F;
-    ColorSecondaryDark: TAlphaColor = $FF2A2D32;
-    ColorNavMenu: TAlphaColor = $FF2A2D32;
+procedure THome.DefineCoresTextosLight;
 begin
-    AnimateColorChange(rtPopUpEditCategories, rtPopUpEditCategories.Fill.Color, ColorPrimaryDark);
-    AnimateColorChange(crClosePopUpEditCategories, crClosePopUpEditCategories.Fill.Color, ColorNavMenu);
-    crClosePopUpEditCategories.Stroke.Color := ColorPrimaryDark;
-    crClosePopUpEditCategories.Stroke.Kind := TBrushKind.Solid;
-    crClosePopUpEditCategories.Stroke.Thickness := 0.5;
-    rtPopUpEditCategories.Stroke.Color := ColorSecondaryDark;
-    rtEditBoardName.Stroke.Thickness := 0.5;
-    rtEditBoardName.Stroke.Color := ColorSecondaryDark;
-    rtPopUpEditCategories.Stroke.Thickness := 0.3;
-    lblHeaderEditCategories.FontColor  := TAlphaColors.White;
+    lblBacklogTitle.FontColor := TAlphaColors.Black;
+    lblBacklogValue.FontColor := TAlphaColors.Black;
 
-    imgClosePopUpEditCategories.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\closeGreen_16.png'));
+    lblProgressTitle.FontColor := TAlphaColors.Black;
+    lblProgressValue.FontColor := TAlphaColors.Black;
+
+    lblCompletedTitle.FontColor := TAlphaColors.Black;
+    lblCompletedValue.FontColor := TAlphaColors.Black;
+
+    lblReviewTitle.FontColor := TAlphaColors.Black;
+    lblReviewValue.FontColor := TAlphaColors.Black;
 end;
 
 
@@ -429,6 +434,8 @@ begin
 end;
 
 
+
+
 procedure THome.AjustaListBoxCategorias;
 var
   ItemHeight: Single;
@@ -466,7 +473,8 @@ end;
 
 procedure THome.FormCreate(Sender: TObject);
 begin
-    DefineTemaSistema('Dark');
+    Theme := TApplicationController.GetThemeApplication;
+    DefineTemaSistema(Theme);
 
     AddItemCategorias( 1 , 'FFC4DAFB', 'coderCategory.ico');
     AddItemCategorias( 2 , 'FFF7D7AF', 'booksCategory.ico');

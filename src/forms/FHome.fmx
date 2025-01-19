@@ -1917,6 +1917,7 @@ object Home: THome
     Size.Width = 1368.000000000000000000
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 5
     object rtPopUpEditCategories: TRectangle
       Align = Center
@@ -2072,7 +2073,7 @@ object Home: THome
         object rtDeleteCategories: TRectangle
           Align = MostLeft
           Fill.Color = xFFF25050
-          Size.Width = 180.000000000000000000
+          Size.Width = 150.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = xFFE98080
@@ -2100,7 +2101,7 @@ object Home: THome
             Margins.Top = 5.000000000000000000
             Margins.Right = 14.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 122.000000000000000000
+            Position.X = 92.000000000000000000
             Position.Y = 5.000000000000000000
             Size.Width = 44.000000000000000000
             Size.Height = 30.000000000000000000
@@ -2110,7 +2111,7 @@ object Home: THome
           object Label3: TLabel
             Align = Client
             StyledSettings = []
-            Size.Width = 122.000000000000000000
+            Size.Width = 92.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Inter'
@@ -2125,8 +2126,8 @@ object Home: THome
         object rtSaveCategories: TRectangle
           Align = MostRight
           Fill.Color = claSpringgreen
-          Position.X = 380.000000000000000000
-          Size.Width = 180.000000000000000000
+          Position.X = 410.000000000000000000
+          Size.Width = 150.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = xFF75EC70
@@ -2151,7 +2152,7 @@ object Home: THome
             Margins.Top = 5.000000000000000000
             Margins.Right = 14.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 122.000000000000000000
+            Position.X = 92.000000000000000000
             Position.Y = 5.000000000000000000
             Size.Width = 44.000000000000000000
             Size.Height = 30.000000000000000000
@@ -2161,7 +2162,7 @@ object Home: THome
           object Label2: TLabel
             Align = Client
             StyledSettings = []
-            Size.Width = 122.000000000000000000
+            Size.Width = 92.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Inter'

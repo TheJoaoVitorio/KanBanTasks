@@ -8,7 +8,8 @@ uses
   uFuntions in 'commons\uFuntions.pas',
   uInstanceController in 'connection\uInstanceController.pas',
   uConnection in 'connection\uConnection.pas',
-  frItemCategorySplitter in 'frames\frItemCategorySplitter.pas' {FramItemCategorySplitter: TFrame};
+  frItemCategorySplitter in 'frames\frItemCategorySplitter.pas' {FramItemCategorySplitter: TFrame},
+  uApplicationController in 'controller\uApplicationController.pas';
 
 {$R *.res}
 

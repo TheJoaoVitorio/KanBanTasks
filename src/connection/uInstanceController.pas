@@ -3,7 +3,7 @@ unit uInstanceController;
 interface
 
 uses
-  uConnection;
+  uConnection, System.SysUtils, FireDAC.Stan.Def;
 
 
 type
@@ -12,12 +12,14 @@ type
       FConnection : TConnection;
 
       class var FInstance : TInstanceController;
-    class procedure ReleaseInstance; static;
+      class procedure ReleaseInstance;
     public
       constructor Create;
       destructor Destroy; override;
 
       class function GetInstance : TInstanceController;
+
+      property Connection : TConnection read FConnection write FConnection;
   end;
 
 implementation

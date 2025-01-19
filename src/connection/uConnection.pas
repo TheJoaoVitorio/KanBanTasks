@@ -3,6 +3,7 @@ unit uConnection;
 interface
 
 uses
+  FireDAC.Stan.Error,FireDAC.DatS,FireDAC.Comp.UI,
   System.SysUtils, System.Classes, Data.DB,
   FireDAC.Comp.Client, FireDAC.Stan.Def, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Pool, FireDAC.Stan.Async,
@@ -15,9 +16,11 @@ type
       Connection : TFDConnection;
       Query      : TFDQuery;
       DriverLink: TFDPhysSQLiteDriverLink;
-    public
+      FDWaitCursor: TFDGUIxWaitCursor;
+
       procedure AfterConstruction; override;
       procedure BeforeDestruction; override;
+    public
       procedure ConfigConnection;
 
       function GetConnection : TFDConnection;
@@ -41,6 +44,10 @@ begin
     if not Assigned(Query) then
       Query := TFDQuery.Create(nil);
 
+    FDWaitCursor := TFDGUIxWaitCursor.Create(nil);
+    FDWaitCursor.Provider := 'Console';
+    FDWaitCursor.ScreenCursor := TFDGUIxScreenCursor.gcrHourGlass;
+
 end;
 
 procedure TConnection.BeforeDestruction;
@@ -52,22 +59,30 @@ begin
 
     if Assigned(Query) then
       FreeAndNil(Query);
+
+    if Assigned(FDWaitCursor) then
+        FreeAndNil(FDWaitCursor);
 end;
 
 procedure TConnection.ConfigConnection;
 begin
-    with Connection.Params do begin
-      DriverID := 'SQLite';
-      Username := '';
-      Password := '';
-      Add('Port=');
-      Database := '';
+    try
+      with Connection.Params do begin
+        DriverID := 'SQLite';
+        Username := 'root';
+        Password := '';
+        Database := ExtractFilePath(ParamStr(0)) +
+                                'data\' +
+                                'kanbandata.db' ;
+      end;
+    except
+      on E:Exception do
+        raise Exception.Create('Erro ao procurar o path do banco de dados');
     end;
 
     if not Assigned(DriverLink) then
     begin
       DriverLink := TFDPhysSQLiteDriverLink.Create(nil);
-      // Configura o caminho da DLL do SQLite
       DriverLink.VendorLib := ExtractFilePath(ParamStr(0)) +
                               'dll\' +
                               'SQLite3.dll';
@@ -76,6 +91,7 @@ end;
 
 function TConnection.GetConnection: TFDConnection;
 begin
+    Connection.Connected := True;
     Result := Connection;
 end;
 
