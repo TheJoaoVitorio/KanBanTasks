@@ -76,7 +76,7 @@ object FramItemCategorySplitter: TFramItemCategorySplitter
           0000000049454E44AE426082}
       end>
     Align = MostRight
-    HitTest = False
+    Cursor = crHandPoint
     Margins.Left = 10.000000000000000000
     Margins.Top = 5.000000000000000000
     Margins.Bottom = 5.000000000000000000

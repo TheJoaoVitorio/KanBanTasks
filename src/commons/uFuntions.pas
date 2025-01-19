@@ -11,7 +11,9 @@ uses
 type
   TFuntions = class
     private
+
     public
+      class function PegaIdListItem(Sender: TObject): Integer;
       class function HexToAlphaColor(const AHexColor : String) : TAlphaColor;
       class procedure AlterarCorDoIconDoFrameNoListBox(AListBox: TListBox; ACor: String);
       class procedure AlterarCorLabelDoFrameNoListBox(AListBox: TListBox;ANovaCor: TAlphaColor);
@@ -21,6 +23,31 @@ type
 implementation
 
 { TFuntions }
+
+class function TFuntions.PegaIdListItem(Sender : TObject) : Integer;
+var
+  item: TListBoxItem;
+  parentControl: TFmxObject;
+begin
+  // Começa pelo Sender (o componente clicado, no caso a imagem)
+  parentControl := Sender as TFmxObject;
+
+
+  // Navega pela hierarquia para encontrar o TListBoxItem pai
+  while (parentControl <> nil) and not (parentControl is TListBoxItem) do
+    parentControl := parentControl.Parent;
+
+
+  // Se encontrou o TListBoxItem
+  if parentControl is TListBoxItem then
+  begin
+    item := TListBoxItem(parentControl);
+    Result := item.Tag;
+  end
+
+
+end;
+
 
 class function TFuntions.HexToAlphaColor(const AHexColor: String): TAlphaColor;
 begin
@@ -44,7 +71,6 @@ begin
     if AListBox.ListItems[i] is TListBoxItem then
     begin
       ListBoxItem := TListBoxItem(AListBox.ListItems[i]);
-
       // Verificar os controles dentro do ListBoxItem
       for j := 0 to ListBoxItem.ControlsCount - 1 do
       begin
@@ -52,7 +78,6 @@ begin
         if ListBoxItem.Controls[j] is TFrame then
         begin
           Frame := TFrame(ListBoxItem.Controls[j]);
-
           // Verificar os controles dentro do Frame
           for k := 0 to Frame.ControlsCount - 1 do
           begin
@@ -83,7 +108,6 @@ begin
     if AListBox.ListItems[i] is TListBoxItem then
     begin
       ListBoxItem := TListBoxItem(AListBox.ListItems[i]);
-
       // Verificar os controles dentro do ListBoxItem
       for j := 0 to ListBoxItem.ControlsCount - 1 do
       begin
@@ -91,11 +115,9 @@ begin
         if ListBoxItem.Controls[j] is TFrame then
         begin
           Frame := TFrame(ListBoxItem.Controls[j]);
-
           // Verificar os controles dentro do Frame
           for k := 1 to Frame.ControlsCount - 1 do
           begin
-
             if Frame.Controls[k] is TImage then
             begin
               ImageControl := TImage(Frame.Controls[k]);

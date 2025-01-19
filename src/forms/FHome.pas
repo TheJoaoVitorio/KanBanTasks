@@ -6,7 +6,7 @@ uses
   FMX.Ani,
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox;
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit;
 
 type
   THome = class(TForm)
@@ -60,6 +60,25 @@ type
     lblButtonDarkTheme: TLabel;
     imgButtonLightTheme: TImage;
     lblButtonLightTheme: TLabel;
+    rtFundoEscuro: TRectangle;
+    lyPopUpEditCategories: TLayout;
+    rtPopUpEditCategories: TRectangle;
+    rtHeaderEditCategories: TRectangle;
+    crClosePopUpEditCategories: TCircle;
+    Image1: TImage;
+    Label1: TLabel;
+    rtEditCategories: TRectangle;
+    Rectangle1: TRectangle;
+    rtButtonsEditCategories: TRectangle;
+    edtBoardName: TEdit;
+    lblTitleEditBoardName: TLabel;
+    rtEditBoardName: TRectangle;
+    rtDeleteCategories: TRectangle;
+    rtSaveCategories: TRectangle;
+    Image2: TImage;
+    Label2: TLabel;
+    Image3: TImage;
+    Label3: TLabel;
     procedure FormResize(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure imgChangeThemeClick(Sender: TObject);
@@ -69,6 +88,7 @@ type
     procedure rtButtonAddNewCategorieSplitterMouseLeave(Sender: TObject);
     procedure rtButtonLightThemeClick(Sender: TObject);
     procedure rtButtonDarkThemeClick(Sender: TObject);
+    procedure crClosePopUpEditCategoriesClick(Sender: TObject);
 
   private
     procedure DefineTemaSistema(ATheme : String);
@@ -83,6 +103,9 @@ type
     procedure AnimationFinish(Sender: TObject);
     procedure DefineThemeLightMenuSplitter;
     procedure DefineThemeDarkMenuSplitter;
+    procedure EditCategoryClick(Sender: TObject);
+    procedure ChamaFundoEscuro(FStatus: Boolean);
+    procedure ChamaPopUpEditCategories(FStatus: Boolean);
 
 
   public
@@ -159,7 +182,7 @@ begin
     with AItemLbx do begin
       AItemLbx := TListBoxItem.Create(nil);
 
-      Cursor     := crHandPoint;
+      //Cursor     := crHandPoint;
       Tag        := AIdItem;
       Selectable := True;
       Parent     := lboxCategorySplitter;
@@ -172,11 +195,14 @@ begin
 
       imgItemCategorySplitter.Bitmap.LoadFromFile( ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\'+ APathImage) );
       crItemCategorySplitter.Fill.Color := AColor;
+      lblItemCategorySplitter.Text := ANomeItem;
 
       Align   := TAlignLayout.Top;
       Parent  := AItemLbx;
-      HitTest := True;
+      //HitTest := True;
       crItemCategorySplitter.Margins.Bottom := 16;
+
+      imgEditCategorySplitter.OnClick := EditCategoryClick;
     end;
 
     AItemLbx.Parent := lboxCategorySplitter;
@@ -403,6 +429,7 @@ begin
     AddItemCategorias( 3 , 'FFFCF097', 'toolsCategory.ico');
 
     AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
+    AddItemCategoriasSplitter(2,'Work','FFC4DAFB', 'coderCategory.ico' );
 end;
 
 procedure THome.FormResize(Sender: TObject);
@@ -418,6 +445,12 @@ begin
     TAnimator.AnimateColor(Target, 'Fill.Color', ToColor, 0.5); // Duração de 0.5 segundos
 end;
 
+
+procedure THome.crClosePopUpEditCategoriesClick(Sender: TObject);
+begin
+  ChamaFundoEscuro(False);
+  ChamaPopUpEditCategories(False);
+end;
 
 procedure THome.crCloseSplitterClick(Sender: TObject);
 begin
@@ -457,6 +490,17 @@ begin
     (Animation.Parent as TControl).Visible := False; // Oculta o controle
 
   Animation.DisposeOf; // Libera a animação
+end;
+
+
+procedure THome.EditCategoryClick(Sender : TObject);
+var
+  FIdItem : Integer;
+begin
+  FIdItem := TFuntions.PegaIdListItem(Sender);
+  ChamaFundoEscuro(True);
+  ChamaPopUpEditCategories(True);
+  ShowMessage(FIdItem.ToString);
 end;
 
 
@@ -521,6 +565,19 @@ procedure THome.rtButtonLightThemeClick(Sender: TObject);
 begin
     DefineTemaSistema('Light');
     Theme := 'Light';
+end;
+
+
+procedure THome.ChamaFundoEscuro(FStatus : Boolean);
+begin
+  rtFundoEscuro.Visible := FStatus;
+end;
+
+
+procedure THome.ChamaPopUpEditCategories(FStatus : Boolean);
+begin
+  lyPopUpEditCategories.BringToFront;
+  lyPopUpEditCategories.Visible := FStatus;
 end;
 
 end.
