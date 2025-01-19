@@ -1601,6 +1601,7 @@ object Home: THome
     Size.Width = 248.000000000000000000
     Size.Height = 697.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 2
     object rtMenuSplitterContainer: TRectangle
       Align = Client
@@ -1635,6 +1636,7 @@ object Home: THome
           Stroke.Dash = Dash
           object lboxCategorySplitter: TListBox
             Align = MostTop
+            HitTest = False
             Margins.Top = 16.000000000000000000
             Position.Y = 16.000000000000000000
             Size.Width = 212.000000000000000000
@@ -1903,7 +1905,7 @@ object Home: THome
   end
   object rtFundoEscuro: TRectangle
     Align = Client
-    Fill.Color = x7D000000
+    Fill.Color = x87000000
     Size.Width = 1368.000000000000000000
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
@@ -1915,6 +1917,7 @@ object Home: THome
     Size.Width = 1368.000000000000000000
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 5
     object rtPopUpEditCategories: TRectangle
       Align = Center
@@ -1939,7 +1942,7 @@ object Home: THome
         Stroke.Kind = None
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
-        object Circle5: TCircle
+        object crClosePopUpEditCategories: TCircle
           Align = MostRight
           Cursor = crHandPoint
           Fill.Color = xFF2A2D32
@@ -1948,7 +1951,7 @@ object Home: THome
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
-          OnClick = crCloseSplitterClick
+          OnClick = crClosePopUpEditCategoriesClick
           object Image1: TImage
             MultiResBitmap = <
               item
@@ -2079,6 +2082,20 @@ object Home: THome
           object Image3: TImage
             MultiResBitmap = <
               item
+                Width = 32
+                Height = 32
+                PNG = {
+                  89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+                  F40000000473424954080808087C08648800000102494441545885ED97B16AC2
+                  501486BF237616A1E053140A591CB42EF5117C92CE9D3AF78974120747314F21
+                  D40C1D8BF23B78059BF626B9C910D0FB2F391C72CFFF25E78443202A2A509212
+                  4999FE2A939484D6B302A321F0964B3F0223A0EB39760056C0572EFF6966EB20
+                  3249B37F9EB2AE663E9F4E10D52DCA3B0317499A3732309B3605504380428FD6
+                  67A07500DFF75CA44B4F5F8077177F004B1707CD4C3080992D0024F5AFD2E955
+                  3EA85EEB2D88001120024480D601EAACE385BB0E802717A7C0CEC5AFBF0C4AD6
+                  71158023F5DFD4D1CC0AF74D95C2694D73806D83B367499A78FE03CAB497342E
+                  AB5FDA0207D1039E81878ADC3FC0C6CCBE2BDE7FC73A01C72FD9C9CEA8518700
+                  00000049454E44AE426082}
               end>
             Align = MostRight
             Margins.Top = 5.000000000000000000
@@ -2089,6 +2106,7 @@ object Home: THome
             Size.Width = 44.000000000000000000
             Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
+            WrapMode = Center
           end
           object Label3: TLabel
             Align = Client

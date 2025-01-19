@@ -65,8 +65,8 @@ type
     rtPopUpEditCategories: TRectangle;
     rtHeaderEditCategories: TRectangle;
     crClosePopUpEditCategories: TCircle;
-    Image1: TImage;
-    Label1: TLabel;
+    imgClosePopUpEditCategories: TImage;
+    lblHeaderEditCategories: TLabel;
     rtEditCategories: TRectangle;
     Rectangle1: TRectangle;
     rtButtonsEditCategories: TRectangle;
@@ -106,6 +106,9 @@ type
     procedure EditCategoryClick(Sender: TObject);
     procedure ChamaFundoEscuro(FStatus: Boolean);
     procedure ChamaPopUpEditCategories(FStatus: Boolean);
+    procedure MudarPropsEditCategories(FTitle, FTypeMode: String);
+    procedure DefineThemeLightPopUpEdit;
+    procedure DefineThemeDarkPopUpEdit;
 
 
   public
@@ -310,6 +313,7 @@ begin
     AnimateColorChange(rtCompletedContainer, rtCompletedContainer.Fill.Color, ColorSecondaryDark);
     DefineThemeDarkMenuSplitter;
     DefineCoresTextosDark;
+    DefineThemeDarkPopUpEdit;
     imgNavMenu.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Menu_16.png'));
     imgAddCategory.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Plus_MathBlack_16.png'));
     imgChangeTheme.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Sun.ico'));
@@ -331,10 +335,54 @@ begin
     AnimateColorChange(rtInReviewContainer, rtInReviewContainer.Fill.Color, ColorSecondaryLight);
     AnimateColorChange(rtCompletedContainer, rtCompletedContainer.Fill.Color, ColorSecondaryLight);
     DefineThemeLightMenuSplitter;
+    DefineThemeLightPopUpEdit;
     DefineCoresTextosLight;
     imgNavMenu.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_MenuGreen_16.png'));
     imgAddCategory.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_Plus_MathWhite_16.png'));
     imgChangeTheme.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\icons8_MoonGreen_Star.ico'));
+end;
+
+
+procedure THome.DefineThemeDarkPopUpEdit;
+const
+    ColorPrimaryDark: TAlphaColor = $FF191B1F;
+    ColorSecondaryDark: TAlphaColor = $FF2A2D32;
+    ColorNavMenu: TAlphaColor = $FF2A2D32;
+begin
+    AnimateColorChange(rtPopUpEditCategories, rtPopUpEditCategories.Fill.Color, ColorPrimaryDark);
+    AnimateColorChange(crClosePopUpEditCategories, crClosePopUpEditCategories.Fill.Color, ColorNavMenu);
+    crClosePopUpEditCategories.Stroke.Color := ColorPrimaryDark;
+    crClosePopUpEditCategories.Stroke.Kind := TBrushKind.Solid;
+    crClosePopUpEditCategories.Stroke.Thickness := 0.5;
+    rtPopUpEditCategories.Stroke.Color := ColorSecondaryDark;
+    rtEditBoardName.Stroke.Thickness := 0.5;
+    rtEditBoardName.Stroke.Color := ColorSecondaryDark;
+    rtPopUpEditCategories.Stroke.Thickness := 0.3;
+    lblHeaderEditCategories.FontColor  := TAlphaColors.White;
+
+    imgClosePopUpEditCategories.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\closeGreen_16.png'));
+end;
+
+
+procedure THome.DefineThemeLightPopUpEdit;
+const
+    ColorPrimaryLight: TAlphaColor = $FFEFFEFA;
+    ColorSecondaryLight: TAlphaColor = $FFFEFEFE;
+    ColorNavMenuLight: TAlphaColor = $FFE2FEF7;
+    ColorGreen : TAlphaColor = $FF00FF7F;
+begin
+    AnimateColorChange(rtPopUpEditCategories, rtPopUpEditCategories.Fill.Color, ColorPrimaryLight);
+    AnimateColorChange(crClosePopUpEditCategories, crClosePopUpEditCategories.Fill.Color, ColorNavMenuLight);
+    crClosePopUpEditCategories.Stroke.Color := ColorGreen;
+    crClosePopUpEditCategories.Stroke.Kind := TBrushKind.Solid;
+    crClosePopUpEditCategories.Stroke.Thickness := 0.5;
+    rtPopUpEditCategories.Stroke.Color := ColorGreen;
+    rtEditBoardName.Stroke.Thickness := 0.5;
+    rtEditBoardName.Stroke.Color := ColorGreen;
+    rtPopUpEditCategories.Stroke.Thickness := 0.3;
+    lblHeaderEditCategories.FontColor  := ColorGreen;
+
+    imgClosePopUpEditCategories.Bitmap.LoadFromFile(ExpandFileName(ExtractFilePath(ParamStr(0)) + '..\..\assets\closeGreen_16.png'));
 end;
 
 
@@ -452,11 +500,13 @@ begin
   ChamaPopUpEditCategories(False);
 end;
 
+
 procedure THome.crCloseSplitterClick(Sender: TObject);
 begin
     //lyMenuSplitter.Visible := False;
     AnimateLayout(lyMenuSplitter, False);
 end;
+
 
 procedure THome.crNavMenuClick(Sender: TObject);
 begin
@@ -579,5 +629,12 @@ begin
   lyPopUpEditCategories.BringToFront;
   lyPopUpEditCategories.Visible := FStatus;
 end;
+
+
+procedure THome.MudarPropsEditCategories(FTitle : String; FTypeMode : String);
+begin
+  lblTitleEditBoardName.Text := FTitle;
+end;
+
 
 end.

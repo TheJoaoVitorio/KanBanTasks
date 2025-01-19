@@ -1636,6 +1636,7 @@ object Home: THome
           Stroke.Dash = Dash
           object lboxCategorySplitter: TListBox
             Align = MostTop
+            HitTest = False
             Margins.Top = 16.000000000000000000
             Position.Y = 16.000000000000000000
             Size.Width = 212.000000000000000000
@@ -1904,7 +1905,7 @@ object Home: THome
   end
   object rtFundoEscuro: TRectangle
     Align = Client
-    Fill.Color = x7D000000
+    Fill.Color = x87000000
     Size.Width = 1368.000000000000000000
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
@@ -1916,7 +1917,6 @@ object Home: THome
     Size.Width = 1368.000000000000000000
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     TabOrder = 5
     object rtPopUpEditCategories: TRectangle
       Align = Center
@@ -1941,7 +1941,7 @@ object Home: THome
         Stroke.Kind = None
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
-        object Circle5: TCircle
+        object crClosePopUpEditCategories: TCircle
           Align = MostRight
           Cursor = crHandPoint
           Fill.Color = xFF2A2D32
@@ -1950,7 +1950,7 @@ object Home: THome
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
-          OnClick = crCloseSplitterClick
+          OnClick = crClosePopUpEditCategoriesClick
           object Image1: TImage
             MultiResBitmap = <
               item

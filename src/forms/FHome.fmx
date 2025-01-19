@@ -1917,7 +1917,6 @@ object Home: THome
     Size.Width = 1368.000000000000000000
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     TabOrder = 5
     object rtPopUpEditCategories: TRectangle
       Align = Center
@@ -1952,7 +1951,7 @@ object Home: THome
           Size.PlatformDefault = False
           Stroke.Kind = None
           OnClick = crClosePopUpEditCategoriesClick
-          object Image1: TImage
+          object imgClosePopUpEditCategories: TImage
             MultiResBitmap = <
               item
                 Width = 16
@@ -1978,10 +1977,10 @@ object Home: THome
             WrapMode = Center
           end
         end
-        object Label1: TLabel
+        object lblHeaderEditCategories: TLabel
           Align = MostLeft
           StyledSettings = []
-          Size.Width = 120.000000000000000000
+          Size.Width = 145.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Inter'
