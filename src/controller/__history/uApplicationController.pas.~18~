@@ -3,6 +3,7 @@ unit uApplicationController;
 interface
 
 uses
+  Datasnap.DBClient,System.Generics.Collections,
   FireDAC.Stan.Error,FireDAC.DatS,FireDAC.Comp.UI,
   System.SysUtils, System.Classes, Data.DB,
   FireDAC.Comp.Client, FireDAC.Stan.Def, FireDAC.Stan.Intf,
@@ -17,7 +18,9 @@ uses
 type
   TApplicationController = class
     private
+
     public
+      class function UpdateThemeApplication(FTheme: String): String;
       class function GetThemeApplication : String;
   end;
 
@@ -29,10 +32,9 @@ class function TApplicationController.GetThemeApplication: String;
 var
   FQuery: TFDQuery;
 begin
-  Result := '';
-  FQuery := TFDQuery.Create(nil);
   try
     try
+      FQuery := TFDQuery.Create(nil);
       with FQuery do
       begin
         Connection := TInstanceController.GetInstance().Connection.GetConnection;
@@ -50,5 +52,9 @@ begin
   end;
 end;
 
+class function TApplicationController.UpdateThemeApplication (FTheme : String) : String;
+begin
+
+end;
 
 end.

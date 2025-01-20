@@ -526,14 +526,18 @@ procedure THome.imgChangeThemeClick(Sender: TObject);
 begin
     if Theme = 'Dark' then
     begin
-        DefineTemaSistema('Light');
         Theme := 'Light';
+        DefineTemaSistema(Theme);
+
+        TApplicationController.UpdateThemeApplication(Theme);
     end
 
     else if Theme = 'Light' then
     begin
-        DefineTemaSistema('Dark');
         Theme := 'Dark';
+        DefineTemaSistema('Dark');
+
+        TApplicationController.UpdateThemeApplication(Theme);
     end;
 
 end;
@@ -615,14 +619,12 @@ end;
 
 procedure THome.rtButtonDarkThemeClick(Sender: TObject);
 begin
-    DefineTemaSistema('Dark');
-    Theme := 'Dark';
+    imgChangeThemeClick(Sender);
 end;
 
 procedure THome.rtButtonLightThemeClick(Sender: TObject);
 begin
-    DefineTemaSistema('Light');
-    Theme := 'Light';
+    imgChangeThemeClick(Sender);
 end;
 
 

@@ -6,7 +6,9 @@ uses
   FMX.Ani,
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit;
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit,
+  FireDAC.UI.Intf, FireDAC.FMXUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI,
+  FireDAC.ConsoleUI.Wait;
 
 type
   THome = class(TForm)
@@ -119,7 +121,7 @@ type
 
 
 var
-  Theme: String = 'Dark';
+  Theme: String;
   Home: THome;
 
 implementation
@@ -127,6 +129,7 @@ implementation
 uses
   frItemCategory,
   frItemCategorySplitter,
+  uApplicationController,
   uFuntions;
 
 {$R *.fmx}
@@ -470,7 +473,8 @@ end;
 
 procedure THome.FormCreate(Sender: TObject);
 begin
-    DefineTemaSistema('Dark');
+    Theme := TApplicationController.GetThemeApplication;
+    DefineTemaSistema(Theme);
 
     AddItemCategorias( 1 , 'FFC4DAFB', 'coderCategory.ico');
     AddItemCategorias( 2 , 'FFF7D7AF', 'booksCategory.ico');
@@ -522,8 +526,9 @@ procedure THome.imgChangeThemeClick(Sender: TObject);
 begin
     if Theme = 'Dark' then
     begin
-        DefineTemaSistema('Light');
         Theme := 'Light';
+        DefineTemaSistema(Theme);
+        //salva no banco
     end
 
     else if Theme = 'Light' then

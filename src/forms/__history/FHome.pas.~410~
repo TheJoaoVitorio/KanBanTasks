@@ -6,7 +6,9 @@ uses
   FMX.Ani,
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit;
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit,
+  FireDAC.UI.Intf, FireDAC.FMXUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI,
+  FireDAC.ConsoleUI.Wait;
 
 type
   THome = class(TForm)
@@ -471,7 +473,7 @@ end;
 
 procedure THome.FormCreate(Sender: TObject);
 begin
-0    Theme := TApplicationController.GetThemeApplication;
+    Theme := TApplicationController.GetThemeApplication;
     DefineTemaSistema(Theme);
 
     AddItemCategorias( 1 , 'FFC4DAFB', 'coderCategory.ico');
@@ -524,14 +526,16 @@ procedure THome.imgChangeThemeClick(Sender: TObject);
 begin
     if Theme = 'Dark' then
     begin
-        DefineTemaSistema('Light');
         Theme := 'Light';
+        DefineTemaSistema(Theme);
+        //salva no banco
     end
 
     else if Theme = 'Light' then
     begin
-        DefineTemaSistema('Dark');
         Theme := 'Dark';
+        DefineTemaSistema('Dark');
+        //salva no banco
     end;
 
 end;

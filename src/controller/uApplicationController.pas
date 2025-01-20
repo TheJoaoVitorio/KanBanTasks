@@ -18,7 +18,9 @@ uses
 type
   TApplicationController = class
     private
+
     public
+      class procedure UpdateThemeApplication(FTheme : String);
       class function GetThemeApplication : String;
   end;
 
@@ -50,5 +52,28 @@ begin
   end;
 end;
 
+class procedure TApplicationController.UpdateThemeApplication (FTheme : String);
+var
+  FQuery: TFDQuery;
+begin
+  try
+    try
+      FQuery := TFDQuery.Create(nil);
+      with FQuery do
+      begin
+        Connection := TInstanceController.GetInstance().Connection.GetConnection;
+        SQL.Text := 'UPDATE SYSTEM SET THEME = :NEW_THEME';
+
+        ParamByName('NEW_THEME').AsString := FTheme;
+        ExecSQL;
+      end;
+    except
+      on E: Exception do
+        raise Exception.CreateFmt('Erro ao buscar tema: %s', [E.Message]);
+    end;
+  finally
+    FQuery.Free;
+  end;
+end;
 
 end.

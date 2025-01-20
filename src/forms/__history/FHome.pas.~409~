@@ -7,7 +7,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit,
-  FireDAC.UI.Intf, FireDAC.FMXUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI;
+  FireDAC.UI.Intf, FireDAC.FMXUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI,
+  FireDAC.ConsoleUI.Wait;
 
 type
   THome = class(TForm)
@@ -80,7 +81,6 @@ type
     Label2: TLabel;
     Image3: TImage;
     Label3: TLabel;
-    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     procedure FormResize(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure imgChangeThemeClick(Sender: TObject);
@@ -526,14 +526,16 @@ procedure THome.imgChangeThemeClick(Sender: TObject);
 begin
     if Theme = 'Dark' then
     begin
-        DefineTemaSistema('Light');
         Theme := 'Light';
+        DefineTemaSistema(Theme);
+        //salva no banco
     end
 
     else if Theme = 'Light' then
     begin
-        DefineTemaSistema('Dark');
         Theme := 'Dark';
+        DefineTemaSistema('Dark');
+
     end;
 
 end;
