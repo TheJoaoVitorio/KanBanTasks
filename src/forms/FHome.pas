@@ -3,12 +3,18 @@ unit FHome;
 interface
 
 uses
+  frItemCategory,
+  frItemCategorySplitter,
+  uCategoriaVO,
+  uCategoriasController,
+  uApplicationController,
+  uFuntions,
   FMX.Ani,
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox, FMX.Edit,
   FireDAC.UI.Intf, FireDAC.FMXUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI,
-  FireDAC.ConsoleUI.Wait;
+  FireDAC.ConsoleUI.Wait, System.Generics.Collections;
 
 type
   THome = class(TForm)
@@ -111,31 +117,71 @@ type
     procedure MudarPropsEditCategories(FTitle, FTypeMode: String);
     procedure DefineThemeLightPopUpEdit;
     procedure DefineThemeDarkPopUpEdit;
+    procedure ChamaCategorias;
 
 
   public
     procedure AddItemCategoriasSplitter(AIdItem: Integer; ANomeItem, AColorItem,APathImage: String);
     procedure AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String);
 
+    procedure AfterConstruction; override;
+    procedure BeforeDestruction ; override;
   end;
 
 
 var
   Theme: String;
   Home: THome;
+  listCategorias : TObjectList<TCategoriaVO>;
+
 
 implementation
 
-uses
-  frItemCategory,
-  frItemCategorySplitter,
-  uApplicationController,
-  uFuntions;
+
 
 {$R *.fmx}
 
 
 // Simple Functions
+
+procedure THome.AfterConstruction;
+begin
+  inherited;
+  if not Assigned(listCategorias) then
+    listCategorias := TObjectList<TCategoriaVO>.Create;
+end;
+
+
+procedure THome.BeforeDestruction;
+begin
+  inherited;
+  if Assigned(listCategorias) then
+    FreeAndNil(listCategorias);
+end;
+
+
+procedure THome.ChamaCategorias;
+var
+  vCategoria : TCategoriaVO;
+begin
+    listCategorias := TCategoriasController.GetTodasCategorias;
+    for vCategoria in listCategorias do
+    begin
+      try
+        lboxCategories.BeginUpdate;
+        lboxCategorySplitter.BeginUpdate;
+
+        AddItemCategorias(vCategoria.ID,vCategoria.Color, vCategoria.PathImage);
+        AddItemCategoriasSplitter(vCategoria.ID,vCategoria.NomeCategoria,vCategoria.Color,vCategoria.PathImage);
+      finally
+        lboxCategories.EndUpdate;
+        lboxCategorySplitter.EndUpdate;
+      end;
+
+    end;
+
+
+end;
 
 procedure THome.AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String);
 var
@@ -476,16 +522,7 @@ begin
     Theme := TApplicationController.GetThemeApplication;
     DefineTemaSistema(Theme);
 
-    AddItemCategorias( 1 , 'FFC4DAFB', 'coderCategory.ico');
-    AddItemCategorias( 2 , 'FFF7D7AF', 'booksCategory.ico');
-    AddItemCategorias( 3 , 'FFFCF097', 'toolsCategory.ico');
-
-    AddItemCategorias( 1 , 'FFC4DAFB', 'coderCategory.ico');
-    AddItemCategorias( 2 , 'FFF7D7AF', 'booksCategory.ico');
-    AddItemCategorias( 3 , 'FFFCF097', 'toolsCategory.ico');
-
-    AddItemCategoriasSplitter(1,'Programming','FFC4DAFB', 'coderCategory.ico' );
-    AddItemCategoriasSplitter(2,'Work','FFC4DAFB', 'coderCategory.ico' );
+    ChamaCategorias;
 end;
 
 procedure THome.FormResize(Sender: TObject);

@@ -9,7 +9,10 @@ uses
   uInstanceController in 'connection\uInstanceController.pas',
   uConnection in 'connection\uConnection.pas',
   frItemCategorySplitter in 'frames\frItemCategorySplitter.pas' {FramItemCategorySplitter: TFrame},
-  uApplicationController in 'controller\uApplicationController.pas';
+  uApplicationController in 'controller\uApplicationController.pas',
+  uCategoriasController in 'controller\uCategoriasController.pas',
+  uCategoriaVO in 'model\uCategoriaVO.pas',
+  uTasksVO in 'model\uTasksVO.pas';
 
 {$R *.res}
 

@@ -205,6 +205,9 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="controller\uApplicationController.pas"/>
+        <DCCReference Include="controller\uCategoriasController.pas"/>
+        <DCCReference Include="model\uCategoriaVO.pas"/>
+        <DCCReference Include="model\uTasksVO.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
