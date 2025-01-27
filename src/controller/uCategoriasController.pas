@@ -52,6 +52,7 @@ begin
             NomeCategoria   := FieldByName('CATEGORY').AsString;
             Color           := FieldByName('COLOR').AsString;
             PathImage       := FieldByName('PATH_IMAGE').AsString;
+            isActive        := FieldByName('ISACTIVE').AsBoolean;
           end;
 
           Result.Add(vCategoria);

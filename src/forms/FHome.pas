@@ -121,8 +121,8 @@ type
 
 
   public
-    procedure AddItemCategoriasSplitter(AIdItem: Integer; ANomeItem, AColorItem,APathImage: String);
-    procedure AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String);
+    procedure AddItemCategoriasSplitter(AIdItem : Integer; ANomeItem : String; AColorItem : String; APathImage : String; AisActive : Boolean);
+    procedure AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String ; AIsActive : Boolean);
 
     procedure AfterConstruction; override;
     procedure BeforeDestruction ; override;
@@ -164,6 +164,7 @@ procedure THome.ChamaCategorias;
 var
   vCategoria : TCategoriaVO;
 begin
+
     listCategorias := TCategoriasController.GetTodasCategorias;
     for vCategoria in listCategorias do
     begin
@@ -171,8 +172,15 @@ begin
         lboxCategories.BeginUpdate;
         lboxCategorySplitter.BeginUpdate;
 
-        AddItemCategorias(vCategoria.ID,vCategoria.Color, vCategoria.PathImage);
-        AddItemCategoriasSplitter(vCategoria.ID,vCategoria.NomeCategoria,vCategoria.Color,vCategoria.PathImage);
+        AddItemCategorias(vCategoria.ID,
+                          vCategoria.Color,
+                          vCategoria.PathImage,
+                          vCategoria.isActive );
+        AddItemCategoriasSplitter(vCategoria.ID,
+                                  vCategoria.NomeCategoria,
+                                  vCategoria.Color,
+                                  vCategoria.PathImage,
+                                  vCategoria.isActive);
       finally
         lboxCategories.EndUpdate;
         lboxCategorySplitter.EndUpdate;
@@ -183,11 +191,14 @@ begin
 
 end;
 
-procedure THome.AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String);
+procedure THome.AddItemCategorias(AIdItem: Integer; AColorItem, APathImageItem: String ; AIsActive : Boolean);
 var
   AItemLbx : TListBoxItem;
   AFrame   : TFrameItemCategory;
   AColor   : TAlphaColor;
+
+const
+  AColorGreen : TAlphaColor = $FF00FF7F;
 begin
     AColor :=  TFuntions.HexToAlphaColor(AColorItem);
 
@@ -213,6 +224,16 @@ begin
       Parent  := AItemLbx;
       HitTest := True;
       crItemCategory.Margins.Bottom := 16;
+
+      if AIsActive then
+      begin
+        crItemCategory.Stroke.Kind      := TBrushKind.Solid;
+        crItemCategory.Stroke.Thickness := 1.5;
+        crItemCategory.Stroke.Color     := AColorGreen;
+      end
+        else
+          crItemCategory.Stroke.Kind := TBrushKind.None;
+
     end;
 
 
@@ -223,11 +244,14 @@ begin
 end;
 
 
-procedure THome.AddItemCategoriasSplitter(AIdItem : Integer; ANomeItem : String; AColorItem : String; APathImage : String);
+procedure THome.AddItemCategoriasSplitter(AIdItem : Integer; ANomeItem : String; AColorItem : String; APathImage : String; AisActive : Boolean);
 var
   AItemLbx : TListBoxItem;
   AFrame   : TFramItemCategorySplitter;
   AColor   : TAlphaColor;
+
+const
+  AColorGreen : TAlphaColor = $FF00FF7F;
 begin
     AColor := TFuntions.HexToAlphaColor(AColorItem);
 
@@ -253,6 +277,19 @@ begin
       Parent  := AItemLbx;
       //HitTest := True;
       crItemCategorySplitter.Margins.Bottom := 16;
+
+      if AIsActive then
+      begin
+        crItemCategorySplitter.Stroke.Kind      := TBrushKind.Solid;
+        crItemCategorySplitter.Stroke.Thickness := 1.5;
+        crItemCategorySplitter.Stroke.Color     := AColorGreen;
+        lblItemCategorySplitter.FontColor       := AColorGreen;
+      end
+        else
+        begin
+          crItemCategorySplitter.Stroke.Kind := TBrushKind.None;
+          lblItemCategorySplitter.FontColor       := TAlphaColors.White;
+        end;
 
       imgEditCategorySplitter.OnClick := EditCategoryClick;
     end;
@@ -520,6 +557,7 @@ end;
 procedure THome.FormCreate(Sender: TObject);
 begin
     Theme := TApplicationController.GetThemeApplication;
+
     DefineTemaSistema(Theme);
 
     ChamaCategorias;
@@ -599,7 +637,7 @@ begin
   FIdItem := TFuntions.PegaIdListItem(Sender);
   ChamaFundoEscuro(True);
   ChamaPopUpEditCategories(True);
-  ShowMessage(FIdItem.ToString);
+  //ShowMessage(FIdItem.ToString);
 end;
 
 
