@@ -1,0 +1,104 @@
+object FrameCardTask: TFrameCardTask
+  Size.Width = 290.000000000000000000
+  Size.Height = 100.000000000000000000
+  Size.PlatformDefault = False
+  object rtCardContainer: TRectangle
+    Align = Client
+    Fill.Color = xFF191B1F
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Size.Width = 290.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 12.000000000000000000
+    YRadius = 12.000000000000000000
+    object rtCardMain: TRectangle
+      Align = Client
+      Fill.Kind = None
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object rtCardButtonEdit: TRectangle
+        Align = MostRight
+        Fill.Kind = None
+        Position.X = 220.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object Image1: TImage
+          MultiResBitmap = <
+            item
+              Width = 16
+              Height = 16
+              PNG = {
+                89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+                61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                010B49444154384FA5923B4EC3401445ED310A0B48414749434995220545D290
+                4DB0174A14D1B011924801C94A914814407640C10A62D1A1F8C319FB12C99AB1
+                C1E2484FE3F13BF7CDC872D0852CCB96455124AC37799E1FEBF5DF20F444F840
+                9AA66B965EA47E2B568EA2E852DB1263CC2903BEB46D86F0A63CD203BD9D343F
+                5C7B25D70B039EA5BAD07C91E785E10BA92EF45F2BCD0FE1B954174E7E93E785
+                F04C6A1D7A86F0B6D2FCFC37FC20DD85BF6ACC801D95C9AF413896EA07E19E21
+                D7D4157E52C52AE8357F6D0B4EC8C91F84FB76CF3AFAB909E1E6AF2D0CDE05EB
+                51188643C2273C9F519F3C3FF2FB4EACD40AA7DC71E2DEDE827A677F4B78A0F6
+                EF1088A929A173BDEA40107C03E86BAB0B8FF68FA30000000049454E44AE4260
+                82}
+            end>
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Place
+        end
+      end
+      object rtCardContent: TRectangle
+        Align = Client
+        Fill.Kind = None
+        Size.Width = 220.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblNomeTask: TLabel
+          Align = MostTop
+          StyledSettings = [Family]
+          Size.Width = 220.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          TextSettings.FontColor = claWhite
+          Text = 'Titulo'
+          TabOrder = 0
+        end
+        object Rectangle1: TRectangle
+          Align = MostBottom
+          Fill.Kind = Resource
+          Padding.Left = 6.000000000000000000
+          Padding.Top = 6.000000000000000000
+          Padding.Right = 6.000000000000000000
+          Padding.Bottom = 6.000000000000000000
+          Position.Y = 30.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = Resource
+        end
+      end
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 248
+  end
+end

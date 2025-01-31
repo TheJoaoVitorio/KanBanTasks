@@ -1,0 +1,16 @@
+﻿[rtCardButtonEdit]
+Coordinates=126,56,110,36
+
+[rtCardContainer]
+Coordinates=10,56,106,36
+
+[rtCardMain]
+Coordinates=112,10,78,36
+
+[]
+Coordinates=0,0,91,36
+
+[rtCardContent]
+Coordinates=10,10,92,36
+Visible=True
+

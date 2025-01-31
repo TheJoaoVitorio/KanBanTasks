@@ -1,0 +1,115 @@
+object FrameCardTask: TFrameCardTask
+  Size.Width = 290.000000000000000000
+  Size.Height = 100.000000000000000000
+  Size.PlatformDefault = False
+  object rtCardContainer: TRectangle
+    Align = Client
+    Fill.Color = xFF191B1F
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Size.Width = 290.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    XRadius = 12.000000000000000000
+    YRadius = 12.000000000000000000
+    object rtCardMain: TRectangle
+      Align = Client
+      Fill.Kind = None
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object rtCardButtonEdit: TRectangle
+        Align = MostRight
+        Fill.Kind = None
+        Position.X = 220.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object Image1: TImage
+          MultiResBitmap = <
+            item
+              Width = 16
+              Height = 16
+              PNG = {
+                89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+                61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                010449444154384FA592B14AC3401C877397621FC0C1AD63978E4E0E1D1C74B1
+                2FE1BB741471E98BB40A2A04070507B56FE09027487013B9A45F921F85709768
+                F0833F97BBDFF74B42483404E7DC7D599639EBB2288AB18EFF06A547CA7BD83F
+                B31CC4CA7BA9646BEDA9B635C6980937F8D6B61BCA2FF523039065D2C2203CC9
+                0D42FE2AD587F04D5E10F23BA93EE4EF8D1686F2AD541FC20F7941C83752DB90
+                59C26DA385F96F792DDD87BFEA1C21639CFC161C2752C320ACB8C92573819F37
+                B506B2EEAF5D81639052CA87D59EF58C7DFD262CDD5F5B58BC63D611BFE69CF2
+                11D753E68BEB87388E1795D40B4FB9617E9894F964AE289F28FE1D0A09734D69
+                A6A30144D10E3116AB35DA7DA70A0000000049454E44AE426082}
+            end>
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Place
+        end
+      end
+      object rtCardContent: TRectangle
+        Align = Client
+        Fill.Kind = None
+        Size.Width = 220.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblNomeTask: TLabel
+          Align = MostTop
+          StyledSettings = [Family]
+          Size.Width = 220.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          TextSettings.FontColor = claWhite
+          Text = 'Titulo'
+          TabOrder = 0
+        end
+        object Rectangle1: TRectangle
+          Align = MostBottom
+          Fill.Kind = Resource
+          Padding.Left = 6.000000000000000000
+          Padding.Top = 6.000000000000000000
+          Padding.Right = 6.000000000000000000
+          Padding.Bottom = 6.000000000000000000
+          Position.Y = 30.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = Resource
+          object ListBox1: TListBox
+            Align = Client
+            Size.Width = 208.000000000000000000
+            Size.Height = 38.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            DisableFocusEffect = True
+            DefaultItemStyles.ItemStyle = 'colorlistboxitemstyle'
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+            Viewport.Width = 204.000000000000000000
+            Viewport.Height = 34.000000000000000000
+          end
+        end
+      end
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 248
+  end
+end
