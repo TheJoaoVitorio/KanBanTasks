@@ -3,6 +3,7 @@ unit FHome;
 interface
 
 uses
+  frCardTask,
   frItemCategory,
   frItemCategorySplitter,
   uCategoriaVO,
@@ -87,6 +88,7 @@ type
     Label2: TLabel;
     Image3: TImage;
     Label3: TLabel;
+    lboxBacklog: TListBox;
     procedure FormResize(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure imgChangeThemeClick(Sender: TObject);
@@ -118,6 +120,7 @@ type
     procedure DefineThemeLightPopUpEdit;
     procedure DefineThemeDarkPopUpEdit;
     procedure ChamaCategorias;
+    procedure AddCardBacklog(FId: Integer; FTituloTask: String);
 
 
   public
@@ -157,6 +160,44 @@ begin
   inherited;
   if Assigned(listCategorias) then
     FreeAndNil(listCategorias);
+end;
+
+
+procedure THome.AddCardBacklog(FId : Integer; FTituloTask : String); //passar a list dos bagdes
+var
+  AItemLbx : TListBoxItem;
+  AFrame   : TFrameCardTask;
+begin
+
+    with AItemLbx do begin
+      AItemLbx := TListBoxItem.Create(nil);
+
+      Cursor     := crHandPoint;
+      Tag        := FId;
+      Selectable := True;
+      Parent     := lboxBacklog;
+      Height     := 80;
+
+      with Margins do begin
+        Left  := 8;
+        Right := 8;
+        Bottom:= 8;
+      end;
+    end;
+
+    with AFrame do begin
+      AFrame := TFrameCardTask.Create(nil);
+
+      Align   := TAlignLayout.Client;
+      Parent  := AItemLbx;
+      HitTest := True;
+
+      lblCardTitleTask.Text := FTituloTask;
+    end;
+
+    lboxBacklog.Height := lboxBacklog.Items.Count * 105;
+    lblBacklogValue.Text := '('+ lboxBacklog.Items.Count.ToString +')';
+
 end;
 
 
@@ -561,6 +602,10 @@ begin
     DefineTemaSistema(Theme);
 
     ChamaCategorias;
+
+    AddCardBacklog(1,'Hello world');
+    AddCardBacklog(2,'Fazer a tela do garçon lorem ipsum oeradskdskd sd');
+    AddCardBacklog(3,'Fazer as exceptions');
 end;
 
 procedure THome.FormResize(Sender: TObject);

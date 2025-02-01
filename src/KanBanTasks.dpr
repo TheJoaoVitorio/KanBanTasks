@@ -12,7 +12,8 @@ uses
   uApplicationController in 'controller\uApplicationController.pas',
   uCategoriasController in 'controller\uCategoriasController.pas',
   uCategoriaVO in 'model\uCategoriaVO.pas',
-  uTasksVO in 'model\uTasksVO.pas';
+  uTasksVO in 'model\uTasksVO.pas',
+  frCardTask in 'frames\frCardTask.pas' {FrameCardTask: TFrame};
 
 {$R *.res}
 

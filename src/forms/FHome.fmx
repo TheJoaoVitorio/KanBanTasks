@@ -233,6 +233,22 @@ object Home: THome
             TabOrder = 1
           end
         end
+        object lboxBacklog: TListBox
+          Align = MostTop
+          Margins.Top = 16.000000000000000000
+          Position.Y = 96.000000000000000000
+          Size.Width = 309.000000000000000000
+          Size.Height = 200.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'lboxCategoriesStyle1'
+          TabOrder = 0
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          Viewport.Width = 305.000000000000000000
+          Viewport.Height = 196.000000000000000000
+        end
       end
       object rtInProgressContainer: TRectangle
         Align = MostLeft
