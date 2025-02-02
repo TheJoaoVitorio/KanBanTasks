@@ -13,7 +13,8 @@ uses
   uCategoriasController in 'controller\uCategoriasController.pas',
   uCategoriaVO in 'model\uCategoriaVO.pas',
   uTasksVO in 'model\uTasksVO.pas',
-  frCardTask in 'frames\frCardTask.pas' {FrameCardTask: TFrame};
+  frCardTask in 'frames\frCardTask.pas' {FrameCardTask: TFrame},
+  frBadge in 'frames\frBadge.pas' {FrameBadge: TFrame};
 
 {$R *.res}
 

@@ -61,7 +61,8 @@ object FrameCardTask: TFrameCardTask
       object lblCardTitleTask: TLabel
         Align = Client
         StyledSettings = []
-        Size.Width = 206.000000000000000000
+        Margins.Left = 3.000000000000000000
+        Size.Width = 203.000000000000000000
         Size.Height = 34.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Inter'

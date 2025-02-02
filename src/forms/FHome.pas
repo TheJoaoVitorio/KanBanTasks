@@ -120,7 +120,7 @@ type
     procedure DefineThemeLightPopUpEdit;
     procedure DefineThemeDarkPopUpEdit;
     procedure ChamaCategorias;
-    procedure AddCardBacklog(FId: Integer; FTituloTask: String);
+    procedure AddCardBacklog(FId : Integer; FTituloTask : String; FBadgeTask : String);
 
 
   public
@@ -139,6 +139,9 @@ var
 
 
 implementation
+
+uses
+  frBadge;
 
 
 
@@ -163,10 +166,11 @@ begin
 end;
 
 
-procedure THome.AddCardBacklog(FId : Integer; FTituloTask : String); //passar a list dos bagdes
+procedure THome.AddCardBacklog(FId : Integer; FTituloTask : String; FBadgeTask : String); //passar a list dos bagdes
 var
-  AItemLbx : TListBoxItem;
-  AFrame   : TFrameCardTask;
+  AItemLbx, AItemBadgeLbx : TListBoxItem;
+  AFrameCard   : TFrameCardTask;
+  AFrameBadge : TFrameBadge;
 begin
 
     with AItemLbx do begin
@@ -185,15 +189,35 @@ begin
       end;
     end;
 
-    with AFrame do begin
-      AFrame := TFrameCardTask.Create(nil);
+
+    with AFrameCard do begin
+      AFrameCard := TFrameCardTask.Create(nil);
 
       Align   := TAlignLayout.Client;
       Parent  := AItemLbx;
       HitTest := True;
 
+
+      with AItemBadgeLbx do begin
+        AItemBadgeLbx := TListBoxItem.Create(nil);
+        Width := 70;
+        Height:= 25;
+        Parent        := lboxCardBadgeTypeTask;
+      end;
+
+
+      with AFrameBadge do begin
+        AFrameBadge := TFrameBadge.Create(nil);
+        Align       := TAlignLayout.Client;
+        Parent      := AItemBadgeLbx;
+
+        lblBadgeTitle.Text :=FBadgeTask;
+      end;
+
       lblCardTitleTask.Text := FTituloTask;
     end;
+
+
 
     lboxBacklog.Height := lboxBacklog.Items.Count * 105;
     lblBacklogValue.Text := '('+ lboxBacklog.Items.Count.ToString +')';
@@ -603,9 +627,9 @@ begin
 
     ChamaCategorias;
 
-    AddCardBacklog(1,'Hello world');
-    AddCardBacklog(2,'Fazer a tela do garçon lorem ipsum oeradskdskd sd');
-    AddCardBacklog(3,'Fazer as exceptions');
+    AddCardBacklog(1,'Hello world','Python');
+    AddCardBacklog(2,'Fazer a tela do garçon lorem ipsum oeradskdskd sd','Figma');
+    AddCardBacklog(3,'Fazer as exceptions','Delphi');
 end;
 
 procedure THome.FormResize(Sender: TObject);
