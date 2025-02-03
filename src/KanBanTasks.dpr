@@ -14,7 +14,8 @@ uses
   uCategoriaVO in 'model\uCategoriaVO.pas',
   uTasksVO in 'model\uTasksVO.pas',
   frCardTask in 'frames\frCardTask.pas' {FrameCardTask: TFrame},
-  frBadge in 'frames\frBadge.pas' {FrameBadge: TFrame};
+  frBadge in 'frames\frBadge.pas' {FrameBadge: TFrame},
+  uTasksController in 'controller\uTasksController.pas';
 
 {$R *.res}
 

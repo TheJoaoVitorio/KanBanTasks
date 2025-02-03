@@ -201,7 +201,7 @@ begin
       with AItemBadgeLbx do begin
         AItemBadgeLbx := TListBoxItem.Create(nil);
         Width := 70;
-        Height:= 25;
+        Height:= 24;
         Parent        := lboxCardBadgeTypeTask;
       end;
 
